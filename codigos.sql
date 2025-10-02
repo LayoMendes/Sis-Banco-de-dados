@@ -191,3 +191,17 @@ SELECT
  ) AS total_vendas;
 
 
+
+ -- Maior venda
+SELECT venda_id, ROUND(SUM(quantidade * valor_unitario), 2) AS total_vendas
+FROM vendas_itens2
+GROUP BY venda_id
+ORDER BY total_vendas DESC
+LIMIT 1;
+
+-- Menor venda
+SELECT venda_id, ROUND(SUM(quantidade * valor_unitario), 2) AS total_vendas
+FROM vendas_itens2
+GROUP BY venda_id
+ORDER BY total_vendas ASC
+LIMIT 1;
