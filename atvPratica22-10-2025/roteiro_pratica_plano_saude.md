@@ -253,6 +253,9 @@ ALTER TABLE medico
 ALTER TABLE medico DROP COLUMN especialidade;
 ```
 
+
+
+
 **Exercício:** anexe o print do `SELECT m.pessoa_id, p.nome, e.nome FROM medico m JOIN pessoa p ON m.pessoa_id = p.id JOIN especialidade e ON m.especialidade_id = e.id;` mostrando a migração.
 
 ---
@@ -334,6 +337,12 @@ ALTER TABLE pessoa ADD CONSTRAINT chk_email_formato CHECK (email ~* '^[A-Za-z0-9
 ALTER TABLE consulta ADD CONSTRAINT uq_medico_agendamento UNIQUE (medico_id, data_consulta);
 ```
 
+INSERT INTO consulta(paciente_id, medico_id, data_consulta, observacoes) VALUES
+(1, 16, '2025-01-10 09:00', 'Retorno para avaliação');
+
+
+
+
 **Exercício:** tentem inserir uma consulta duplicada (com mesmo medico_id e data_consulta) para provar que a restrição bloqueia a operação e anexem o print do erro.
 
 ---
@@ -364,6 +373,30 @@ WHERE NOT EXISTS (
 **Exercício:** capture os resultados e anexe.
 
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Atividade 8 — Restrições `NOT NULL` e regras de obrigatoriedade
 
@@ -432,7 +465,11 @@ Alternativa: `ON DELETE CASCADE` que apaga consultas relacionadas automaticament
 
 ```sql
 SELECT count(*) FROM paciente;
+
+
+
 SELECT count(*) FROM consulta;
+
 
 SELECT * FROM pessoa WHERE cpf IS NULL OR cpf !~ '^[0-9]{11}$';
 SELECT * FROM medico WHERE crm IS NULL;
@@ -455,5 +492,98 @@ Anexem prints dessas verificações.
 6. Print: tentativa de inserir consulta duplicada e erro gerado
 7. Print: resultado da query que lista médicos sem consultas
 8. Print: resultado da query que lista pacientes sem consultas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ATIVIDADE FOI EXECUTADA ATÉ APÓS A 8, JÁ ESTÁ TUDO EXECUTADO SO FALTA EXPLICAR NO WORD E EXPLICAR PARA O RAFAEL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
